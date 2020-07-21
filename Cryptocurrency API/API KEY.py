@@ -4,7 +4,6 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import xlsxwriter
 
 def input_data():
-    '''Wprowadzenie danych tj. nazwa coina i ilość'''
     print("Disclaimer 1: Please provide coin full name e.g. Bitcoin instead of BTC.")
     print('Disclaimer 2: To stop the loop enter "end" as coin name.')
     coin_names=[]
@@ -212,13 +211,3 @@ while True:
         break
 
 
-
-
-
-'''
-Dane do logowania:
-mail: iktmkazaotkjkcytnf@ttirv.net 
-haslo: slownik1
-API Key : 8f92b739-35b5-4617-8c0b-f0db4398ed0a
-
-'''
