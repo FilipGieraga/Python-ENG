@@ -17,7 +17,7 @@ Aby dodać nową monetę proces polega na rozszerzeniu formuł w naszym pliku, m
 W ten sposób tworzy nam się nowy pusty rząd, w którym musimy wypełnić trzy komórki Name, Short name i ilość.<br>
 Musimy zaktualizować formuły dla nowo powstałej monety poprzez:<br>
 przeciągnięcie formuły values o jedną w dół<br>
-przecięcie formuły total dla naszej sumy o jedną w dół<br>
+przeciągnięcie formuły total dla naszej sumy o jedną w dół<br>
 kliknięcię na wykres kołowy oraz przęciagnięcie go o jedną komórkę w dół dla short name i value<br>
 użycie malarza formatów dla procentowych zmian<br>
 
