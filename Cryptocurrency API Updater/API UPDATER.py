@@ -102,7 +102,7 @@ def update_to_xlsx(prices, changes_1h, changes_24h, changes_7d):
     sht1.range('F2').options(transpose=True).value = changes_1h
     sht1.range('G2').options(transpose=True).value = changes_24h
     sht1.range('H2').options(transpose=True).value = changes_7d
-
+    wb.save()
 
 
 def update():
