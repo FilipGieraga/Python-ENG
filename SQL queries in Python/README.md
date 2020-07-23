@@ -1,20 +1,20 @@
-# Program zapytania SQL pozwala nam wyświetlić wybrane informacj o sezonie 2018/2019 w lalidze.
+# The SQL query program allows us to display selected information about the 2018/2019 season in laliga.
 
-Wymagania: Python 3, pandas module, pandasql module<br>
+Requirements: Python 3, pandas module, pandasql module <br><br>
 
-Na początek wczytane zostają dane z pliku laliga.csv.<br>
+First, the data from laliga.csv file is read.<br>
 
-Funkcja sql_df() jest używana w funkcji queries() i pobiera treść każdego zapytania drukując nam przy tym jego rezultat.<br>
+The sql_df() function is used in function queries() and gets the content of each query, printing the result to us. <br>
 <br>
-Zapytań łącznie jest 11 i każde jest opisane.
-Niektóre zapytania pobierają od użytkownika informację jak np. jaką drużynę chce wyświetlić.
-Aby ułatwić korzystanie z programu, gdy od użytkownika wymagane jest podanie pozycji albo drużyny,
-są one wyświetlane i wystarczy je skopiować bez cudzysłowia.
+There are 11 queries in total and each one of them is described.
+Some inquiries collect information from the user, such as what team he wants to display.
+To facilitate use of this program, when the user is required to enter a position or team,
+they are displayed and you just need to copy them without the quotes.
 <br><br>
-Głównym trzonem programu jest funkcja queries(), która wyświetla jakie zapytania możemy wykonać.
-Są one ponumerowane i wystarczy wpisać nr. zapytania i kliknąć enter.
-Po każdym zapytaniu program czeka na wciśnięcie entera aby kontynuować.
-Czasami niestety enter przenosi wiersz do nowej linijki a potem ponowny enter kończy program.
-Aby temu zapobiec, jeśli program przeniesie nas do nowego wiersza, należy wcisnąć backspace i dopiero enter.
-Aby zakończyć działanie programu wpisujemy end albo dowolny string przy wyborze zapytania.
+The main body of the program is the queries() function, which displays what queries we can execute.
+They are numbered and we just need to provide the number of query and click enter.
+After each query, the program waits for an enter key to continue.
+Sometimes, unfortunately, enter moves the line to a new line and then re-enter ends the program.
+To prevent this from happening, if the program takes us to a new line, hit backspace and then enter.
+To end the program, type end or any string when selecting the query.
 
