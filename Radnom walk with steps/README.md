@@ -2,18 +2,18 @@
 
 Requirements: Python 3, random module, turtle module
 
-# Random_walk (n):
+## Random_walk (n):
 The random_walk(n) function is the backbone of the program and only retrieves the number of steps from the user.
 After performing these steps, it returns us the x and y coordinates and the absolute value of the path traveled.
 
-# max_min_steps (number_of_walks, steps_taken):
+## max_min_steps (number_of_walks, steps_taken):
 The max_min_steps (number_of_walks, steps_taken) function simulates a walk with a fixed number of steps,
 given number of times. The distances of individual walks are stored in the variable distances_walked, which is a set.
 The program returns us the minimum and maximum absolute value of the distance traveled for the given number of walks.
 
 
 
-# walk_loop (number_of_walks, walk_lengths_range, distance_limit):
+## walk_loop (number_of_walks, walk_lengths_range, distance_limit):
 The walk_loop(number_of_walks, walk_lengths_range, distance_limit) function determines how often it would be needed to take a transport
 back home from walked distance. It will be needed whenever the absoulte distance traveled is
 longer than distance_limit.
@@ -30,7 +30,7 @@ value of no_transport for each walk distance is zero. After the last walk made f
 steps, we will be given the percentage of walks from which we do not need a taxi for all walk sizes.
 
 
-# draw_random_walk (n, forward, pointer, speed):
+## draw_random_walk (n, forward, pointer, speed):
 The draw_random_walk (n, forward, pointer, speed) function is my favorite in this program and it draws us a random walk
 based on the adopted parameters. <br>
 n- is the number of steps to be drawn <br>
