@@ -45,8 +45,8 @@ def average_on_position(df):
     name1= "Average salary monthly(in PLN):"
     data1=[]
     label1=[]
-    for stanowisko in earnings_grouped:
-        data1.append(stanowisko)
+    for position in earnings_grouped:
+        data1.append(position)
     for index in earnings_grouped.index:
         label1.append(index)
 
@@ -68,8 +68,8 @@ def position_median(df):
     name2 = "Median monthly earnings(in PLN):"
     data2 = []
     label2 = []
-    for stanowisko in earnings_grouped:
-        data2.append(stanowisko)
+    for position in earnings_grouped:
+        data2.append(position)
     for index in earnings_grouped.index:
         label2.append(index)
 
@@ -87,8 +87,8 @@ def age_average(df):
     name3= "Average age(in years):"
     data3 = []
     label3 = []
-    for stanowisko in age_grouped:
-        data3.append(stanowisko)
+    for position in age_grouped:
+        data3.append(position)
     for index in age_grouped.index:
         label3.append(index)
     return data3, name3
@@ -104,8 +104,8 @@ def position_counter(df):
     name4= "Number of people:"
     data4 = []
     label4 = []
-    for stanowisko in dzial_grouped:
-        data4.append(stanowisko)
+    for position in dzial_grouped:
+        data4.append(position)
     for index in dzial_grouped.index:
         label4.append(index)
     return data4, name4
@@ -121,8 +121,8 @@ def emp_in_departments(df):
     name5= "Number of people in each departments:"
     data5 = []
     label5 = []
-    for stanowisko in department_grouped:
-        data5.append(stanowisko)
+    for position in department_grouped:
+        data5.append(position)
     for index in department_grouped.index:
         label5.append(index)
     return data5, label5, name5
