@@ -99,14 +99,14 @@ def age_average(df):
 
 def position_counter(df):
     df["Counter"] = 1
-    dzial_grouped=df.groupby(["Position"]).count()["Counter"]
-    dzial_grouped = dzial_grouped.loc[(dzial_grouped!=0)]
+    department_grouped=df.groupby(["Position"]).count()["Counter"]
+    department_grouped = department_grouped.loc[(department_grouped != 0)]
     name4= "Number of people:"
     data4 = []
     label4 = []
-    for position in dzial_grouped:
+    for position in department_grouped:
         data4.append(position)
-    for index in dzial_grouped.index:
+    for index in department_grouped.index:
         label4.append(index)
     return data4, name4
 
@@ -132,13 +132,13 @@ def emp_in_departments(df):
 
 def m_and_f_counter(df):
     df["Counter"] = 1
-    k_i_m=df.groupby(["Gender"]).count()["Counter"]
+    m_a_f=df.groupby(["Gender"]).count()["Counter"]
     data6 = []
     label6 = []
     name6 = "Number of men and women in company:"
-    for osoba in k_i_m:
-        data6.append(osoba)
-    for index in k_i_m.index:
+    for person in m_a_f:
+        data6.append(person)
+    for index in m_a_f.index:
         label6.append(index)
     return data6, label6, name6
 
@@ -155,8 +155,8 @@ def regular_employers_earnings(df):
     name7= "Average earnings of women and men on the lowest positions:"
     data7 = []
     label7 = []
-    for osoba in regular_e:
-        data7.append(osoba)
+    for person in regular_e:
+        data7.append(person)
     for index in regular_e.index:
         label7.append(index)
     return data7, name7
