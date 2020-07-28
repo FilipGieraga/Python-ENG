@@ -36,6 +36,4 @@ Despite the undoubted flaws that this program has, I am sharing it because it to
 puzzles.
 
 
-<p align="center">
-  <img src="Example_solved.png" width="350" title="sudoku">
-</p>
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/9.%20Sudoku%20Solver/Example_solved.PNG)
