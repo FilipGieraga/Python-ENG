@@ -111,13 +111,13 @@ def random_age():
 
 
 def age_counter(data_urodzenia):
-    """Age couter for company employers"""
+    """Age couter for company employees"""
     dzisiaj = datetime.date.today()
     wiek = dzisiaj.year - data_urodzenia.year -((dzisiaj.month, dzisiaj.day)<(data_urodzenia.month, data_urodzenia.day))
     return wiek
 
 
-def employers(number_of_employees, company_name):
+def employees(number_of_employees, company_name):
     """Personal data generator"""
     company = {}
     x=set(random.sample(range(10000,100000),k=1000))
@@ -419,7 +419,7 @@ def company_structure(company, company_name):
             list_staz.pop(klucz_1)
     return company
 
-def print_employers(company):
+def print_employees(company):
     for k,v in company.items():
         print(k,v)
 
@@ -432,9 +432,9 @@ def to_json(company):
 
 number_of_employees=500
 company_name= "Google"
-company = employers(number_of_employees, company_name)
+company = employees(number_of_employees, company_name)
 company = company_structure(company, company_name)
-print_employers(company)
+print_employees(company)
 to_json(company)
 
 
