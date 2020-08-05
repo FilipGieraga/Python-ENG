@@ -6,26 +6,26 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import xlwings as xw
 
 
-
 def fetching_data():
     df = pd.read_excel("CryptoPortfolio.xlsx", index_col=None, header=0)
     # print(df)
     coins = df["Name"]
-    coins= [str(x).lower() for x in coins if str(x) != "nan"]
+    coins = [str(x).lower() for x in coins if str(x) != "nan"]
     coins_string = ",".join(coins)
-    coins_string=str(coins_string)
+    coins_string = str(coins_string)
     # print(coins_string)
     # print(coins)
     return coins, coins_string
 
+
 def update_API(coins_string):
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
     parameters = {
-    'slug': coins_string
-                }
+        'slug': coins_string
+    }
     headers = {
-      'Accepts': 'application/json',
-      'X-CMC_PRO_API_KEY': '8f92b739-35b5-4617-8c0b-f0db4398ed0a',
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': '8f92b739-35b5-4617-8c0b-f0db4398ed0a',
     }
 
     session = Session()
@@ -38,20 +38,20 @@ def update_API(coins_string):
         #     json.dump(data, outfile, indent=2)
         print(data)
         coins_id = []
-        names=[]
-        prices=[]
-        changes_1h=[]
-        changes_24h=[]
-        changes_7d=[]
+        names = []
+        prices = []
+        changes_1h = []
+        changes_24h = []
+        changes_7d = []
         for coin in data["data"]:
             coins_id.append(coin)
 
         for coin in coins_id:
-            name =data["data"][coin]["name"]
+            name = data["data"][coin]["name"]
             price = data["data"][coin]["quote"]["USD"]["price"]
-            price=round(price,5)
+            price = round(price, 5)
             change_1h = data["data"][coin]["quote"]["USD"]["percent_change_1h"]
-            change_1h=round(change_1h,2)
+            change_1h = round(change_1h, 2)
             change_24h = data["data"][coin]["quote"]["USD"]["percent_change_24h"]
             change_24h = round(change_24h, 2)
             change_7d = data["data"][coin]["quote"]["USD"]["percent_change_7d"]
@@ -61,15 +61,10 @@ def update_API(coins_string):
             changes_1h.append(change_1h)
             changes_24h.append(change_24h)
             changes_7d.append(change_7d)
-        return names,prices,changes_1h, changes_24h, changes_7d
+        return names, prices, changes_1h, changes_24h, changes_7d
 
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)
-
-
-
-
-
 
 
 def sort_values(names, coins, prices, changes_1h, changes_24h, changes_7d):
@@ -92,7 +87,6 @@ def sort_values(names, coins, prices, changes_1h, changes_24h, changes_7d):
 # changes_1h=[0.2, 0.29, 0.33, 3.4, -1.66, 1.73]
 # changes_24h=[-0.15, -1.07, 2.55, -1.75, 2.58, -0.61]
 # changes_7d=[1.66, 12.25, 28.09, 21.86, 17.63, 73.54]
-
 
 
 def update_to_xlsx(prices, changes_1h, changes_24h, changes_7d):
@@ -119,7 +113,8 @@ def update():
         update_to_xlsx(prices, changes_1h, changes_24h, changes_7d)
     else:
         print("Sorting...")
-        prices, changes_1h, changes_24h, changes_7d=sort_values(names, coins, prices, changes_1h, changes_24h, changes_7d)
+        prices, changes_1h, changes_24h, changes_7d = sort_values(names, coins, prices, changes_1h, changes_24h,
+                                                                  changes_7d)
         update_to_xlsx(prices, changes_1h, changes_24h, changes_7d)
 
 

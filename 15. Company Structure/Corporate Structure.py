@@ -2,8 +2,6 @@ import random
 import datetime
 import json
 
-
-
 imiona_męskie = """Adam, Adolf, Adrian, Albert, Aleksander, Aleksy, Alfred, Amadeusz, Andrzej, Antoni, Arkadiusz, Arnold, Artur,
 Bartłomiej, Bartosz, Benedykt, Beniamin, Bernard, Błażej, Bogdan, Bogumił, Bogusław, Bolesław, Borys, Bronisław,
 Cezary, Cyprian, Cyryl, Czesław,
@@ -27,10 +25,10 @@ Tadeusz, Teodor, Tomasz,
 Wacław, Waldemar, Wiesław, Wiktor, Witold, Władysław, Włodzimierz, Wojciech,
 Zbigniew, Zdzisław, Zenon, Zygmunt"""
 
-imiona_męskie = imiona_męskie.replace('\n',' ')
-imiona_męskie=imiona_męskie.split(", ")
+imiona_męskie = imiona_męskie.replace('\n', ' ')
+imiona_męskie = imiona_męskie.split(", ")
 
-imiona_żeńskie="""Ada, Adela, Adelajda, Adrianna, Agata, Agnieszka, Aldona, Aleksandra, Alicja, Alina, Amanda, Amelia, Anastazja,
+imiona_żeńskie = """Ada, Adela, Adelajda, Adrianna, Agata, Agnieszka, Aldona, Aleksandra, Alicja, Alina, Amanda, Amelia, Anastazja,
 Andżelika, Aneta, Anita, Anna, Antonina,
 Barbara, Beata, Berenika, Bernadeta, Blanka, Bogusława, Bożena,
 Cecylia, Celina, Czesława,
@@ -57,10 +55,10 @@ Weronika, Wiesława, Wiktoria, Wioletta,
 Żaneta,
 Zofia, Zuzanna, Zyta"""
 
-imiona_żeńskie = imiona_żeńskie.replace('\n',' ')
-imiona_żeńskie=imiona_żeńskie.split(", ")
+imiona_żeńskie = imiona_żeńskie.replace('\n', ' ')
+imiona_żeńskie = imiona_żeńskie.split(", ")
 
-surnames= """
+surnames = """
  Nowak Kowalski Wiśniewski Wójcik Kowalczyk Kamiński Lewandowski Zieliński Szymański Woźniak Dąbrowski\
  Kozłowski  Jankowski  Mazur  Wojciechowski  Kwiatkowski  Krawczyk  Kaczmarek  Piotrowski  Grabowski\
  Zając Pawłowski Michalski Król Wieczorek Jabłoński Wróbel Nowakowski Majewski Olszewski Stępień\
@@ -80,12 +78,11 @@ surnames= """
  Kurowski Michalik Owczarek Orzechowski Grzelak Łukasik Olejnik Sobolewski Rogowski Mazurkiewicz Barański\
  Bukowski Matusiak Sroka Kosiński Kędzierski Skowroński Marcinkowski"""
 
+surnames = surnames.split()
 
-surnames=surnames.split()
-
-departments=["Research and development", "Accounting", "Compliance", "IT", "Logistics", "Marketing", "HR"]
-hr_positions=["HR Manager", "Recruitment", "Compensation and Benefits",
-               "Safety and Health","Training and Development","Industrial relations"]
+departments = ["Research and development", "Accounting", "Compliance", "IT", "Logistics", "Marketing", "HR"]
+hr_positions = ["HR Manager", "Recruitment", "Compensation and Benefits",
+                "Safety and Health", "Training and Development", "Industrial relations"]
 
 
 def random_start_date():
@@ -113,105 +110,104 @@ def random_age():
 def age_counter(data_urodzenia):
     """Age couter for company employees"""
     dzisiaj = datetime.date.today()
-    wiek = dzisiaj.year - data_urodzenia.year -((dzisiaj.month, dzisiaj.day)<(data_urodzenia.month, data_urodzenia.day))
+    wiek = dzisiaj.year - data_urodzenia.year - (
+                (dzisiaj.month, dzisiaj.day) < (data_urodzenia.month, data_urodzenia.day))
     return wiek
 
 
 def employees(number_of_employees, company_name):
     """Personal data generator"""
     company = {}
-    x=set(random.sample(range(10000,100000),k=1000))
-
+    x = set(random.sample(range(10000, 100000), k=1000))
 
     for i in range(number_of_employees):
         employee_id = x.pop()
         gender = random.choice(["M", "K"])
         if gender == "M":
-            name= random.choice(imiona_męskie)
-            gender= "Man"
+            name = random.choice(imiona_męskie)
+            gender = "Man"
         else:
             name = random.choice(imiona_żeńskie)
             gender = "Woman"
-        surname= random.choice(surnames)
+        surname = random.choice(surnames)
         if gender == "Woman":
             list_surname = list(surname)
-            if list_surname[-1]== "i":
+            if list_surname[-1] == "i":
                 list_surname[-1] = "a"
                 surname = ''.join(list_surname)
-        email= name.lower() + "." + surname.lower() + "@" + company_name.lower() + ".com"
+        email = name.lower() + "." + surname.lower() + "@" + company_name.lower() + ".com"
         start_date = random_start_date()
-        start_date1= datetime.datetime.strptime(start_date, "%d-%m-%Y")
-        work_experience= datetime.datetime.today() - start_date1
-        work_experience= work_experience.days
+        start_date1 = datetime.datetime.strptime(start_date, "%d-%m-%Y")
+        work_experience = datetime.datetime.today() - start_date1
+        work_experience = work_experience.days
         date_of_birth = random_age()
-        age= age_counter(date_of_birth)
-        date_of_birth=date_of_birth.strftime("%d-%m-%Y")
+        age = age_counter(date_of_birth)
+        date_of_birth = date_of_birth.strftime("%d-%m-%Y")
 
-        company.update({employee_id :
-                          {"Name":name,
-                           "Surname":surname,
-                           "Gender":gender,
-                           "E-mail":email,
-                           "Date of birth": date_of_birth,
-                           "Age": age,
-                           "Start date": start_date,
-                           "Work experience(in days)": work_experience,
-                           }
+        company.update({employee_id:
+                            {"Name": name,
+                             "Surname": surname,
+                             "Gender": gender,
+                             "E-mail": email,
+                             "Date of birth": date_of_birth,
+                             "Age": age,
+                             "Start date": start_date,
+                             "Work experience(in days)": work_experience,
+                             }
                         })
     return company
 
+
 def company_structure(company, company_name):
     """Generating company structure, job positions and salaries"""
-    list_staz=[]
-    list_klucze=[]
-    for k,v in company.items():
-        list_staz+=([v["Work experience(in days)"]])
-        list_klucze+=[k]
+    list_staz = []
+    list_klucze = []
+    for k, v in company.items():
+        list_staz += ([v["Work experience(in days)"]])
+        list_klucze += [k]
 
+    company_size = len(company) / 100
+    company_size = int(company_size)
 
-    company_size= len(company) / 100
-    company_size=int(company_size)
-
-
-    l_menadzerow=10
-    l_supervisorow=20
-    l_hr=(len(company)*0.03)
-    l_hr= round(l_hr,0)
-    l_hr=int(l_hr)
+    l_menadzerow = 10
+    l_supervisorow = 20
+    l_hr = (len(company) * 0.03)
+    l_hr = round(l_hr, 0)
+    l_hr = int(l_hr)
     wykorzystane_dzialy = random.sample(departments[0:-1], company_size)
-    used_departaments1=wykorzystane_dzialy.copy()
-    stanowiska_hr1=hr_positions.copy()
-
+    used_departaments1 = wykorzystane_dzialy.copy()
+    stanowiska_hr1 = hr_positions.copy()
 
     for i in range(len(company)):
-        if i==0:
-            klucz_1=list_staz.index(max(list_staz)) # index najwyzszej wartosci w liscie staz
-            klucz_2=list_klucze[klucz_1] # wartosc
+        if i == 0:
+            klucz_1 = list_staz.index(max(list_staz))  # index najwyzszej wartosci w liscie staz
+            klucz_2 = list_klucze[klucz_1]  # wartosc
             company[klucz_2]["Position"] = 'CEO'
-            company[klucz_2]["E-mail"] = company[klucz_2]["Name"].lower()+"."+company[klucz_2]["Surname"].lower()+"-CEO@"+company_name.lower()+".com"
-            if company_size==1:
+            company[klucz_2]["E-mail"] = company[klucz_2]["Name"].lower() + "." + company[klucz_2][
+                "Surname"].lower() + "-CEO@" + company_name.lower() + ".com"
+            if company_size == 1:
                 earnings = random.randint(200000, 250000)
-                earnings=round(earnings, -1)
-            elif company_size==2:
+                earnings = round(earnings, -1)
+            elif company_size == 2:
                 earnings = random.randint(230000, 280000)
                 earnings = round(earnings, -1)
-            elif company_size==3:
+            elif company_size == 3:
                 earnings = random.randint(265000, 300000)
                 earnings = round(earnings, -1)
-            elif company_size==4:
+            elif company_size == 4:
                 earnings = random.randint(290000, 330000)
                 earnings = round(earnings, -1)
-            elif company_size==5:
+            elif company_size == 5:
                 earnings = random.randint(320000, 400000)
                 earnings = round(earnings, -1)
-            elif company_size==6:
+            elif company_size == 6:
                 earnings = random.randint(380000, 500000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
             company[klucz_2]["Monthly earnings"] = str(int(earnings / 12)) + " zł"
             list_klucze.pop(klucz_1)
             list_staz.pop(klucz_1)
-            increment1=i
+            increment1 = i
 
 
         elif i in range(i, increment1 + company_size + 1):
@@ -220,22 +216,22 @@ def company_structure(company, company_name):
             company[klucz_2]["Position"] = 'President'
             ### Oddział
             company[klucz_2]["Department"] = used_departaments1.pop()
-            if company_size==1:
+            if company_size == 1:
                 earnings = random.randint(150000, 175000)
-                earnings=round(earnings, -1)
-            elif company_size==2:
+                earnings = round(earnings, -1)
+            elif company_size == 2:
                 earnings = random.randint(160000, 180000)
                 earnings = round(earnings, -1)
-            elif company_size==3:
+            elif company_size == 3:
                 earnings = random.randint(175000, 190000)
                 earnings = round(earnings, -1)
-            elif company_size==4:
+            elif company_size == 4:
                 earnings = random.randint(190000, 210000)
                 earnings = round(earnings, -1)
-            elif company_size==5:
+            elif company_size == 5:
                 earnings = random.randint(200000, 240000)
                 earnings = round(earnings, -1)
-            elif company_size==6:
+            elif company_size == 6:
                 earnings = random.randint(230000, 260000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -250,25 +246,25 @@ def company_structure(company, company_name):
             klucz_2 = list_klucze[klucz_1]
             company[klucz_2]["Position"] = 'Vice-President'
             ### Oddział
-            if len(used_departaments1)==0:
+            if len(used_departaments1) == 0:
                 used_departaments1 = wykorzystane_dzialy.copy()
             company[klucz_2]["Department"] = used_departaments1.pop()
-            if company_size==1:
+            if company_size == 1:
                 earnings = random.randint(100000, 115000)
-                earnings=round(earnings, -1)
-            elif company_size==2:
+                earnings = round(earnings, -1)
+            elif company_size == 2:
                 earnings = random.randint(120000, 140000)
                 earnings = round(earnings, -1)
-            elif company_size==3:
+            elif company_size == 3:
                 earnings = random.randint(130000, 160000)
                 earnings = round(earnings, -1)
-            elif company_size==4:
+            elif company_size == 4:
                 earnings = random.randint(150000, 175000)
                 earnings = round(earnings, -1)
-            elif company_size==5:
+            elif company_size == 5:
                 earnings = random.randint(160000, 180000)
                 earnings = round(earnings, -1)
-            elif company_size==6:
+            elif company_size == 6:
                 earnings = random.randint(175000, 199000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -283,25 +279,25 @@ def company_structure(company, company_name):
             klucz_2 = list_klucze[klucz_1]
             company[klucz_2]["Position"] = 'Manager'
             ### Oddział
-            if len(used_departaments1)==0:
+            if len(used_departaments1) == 0:
                 used_departaments1 = wykorzystane_dzialy.copy()
             company[klucz_2]["Department"] = used_departaments1.pop()
-            if company_size==1:
+            if company_size == 1:
                 earnings = random.randint(70000, 95000)
-                earnings=round(earnings, -1)
-            elif company_size==2:
+                earnings = round(earnings, -1)
+            elif company_size == 2:
                 earnings = random.randint(78000, 95000)
                 earnings = round(earnings, -1)
-            elif company_size==3:
+            elif company_size == 3:
                 earnings = random.randint(85000, 100000)
                 earnings = round(earnings, -1)
-            elif company_size==4:
+            elif company_size == 4:
                 earnings = random.randint(95000, 105000)
                 earnings = round(earnings, -1)
-            elif company_size==5:
+            elif company_size == 5:
                 earnings = random.randint(100000, 110000)
                 earnings = round(earnings, -1)
-            elif company_size==6:
+            elif company_size == 6:
                 earnings = random.randint(105000, 115000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -316,25 +312,25 @@ def company_structure(company, company_name):
             klucz_2 = list_klucze[klucz_1]
             company[klucz_2]["Position"] = 'Supervisor'
             ### Oddział
-            if len(used_departaments1)==0:
+            if len(used_departaments1) == 0:
                 used_departaments1 = wykorzystane_dzialy.copy()
             company[klucz_2]["Department"] = used_departaments1.pop()
-            if company_size==1:
+            if company_size == 1:
                 earnings = random.randint(50000, 65000)
-                earnings=round(earnings, -1)
-            elif company_size==2:
+                earnings = round(earnings, -1)
+            elif company_size == 2:
                 earnings = random.randint(60000, 70000)
                 earnings = round(earnings, -1)
-            elif company_size==3:
+            elif company_size == 3:
                 earnings = random.randint(70000, 80000)
                 earnings = round(earnings, -1)
-            elif company_size==4:
+            elif company_size == 4:
                 earnings = random.randint(85000, 98000)
                 earnings = round(earnings, -1)
-            elif company_size==5:
+            elif company_size == 5:
                 earnings = random.randint(95000, 103000)
                 earnings = round(earnings, -1)
-            elif company_size==6:
+            elif company_size == 6:
                 earnings = random.randint(100000, 107000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -344,54 +340,54 @@ def company_structure(company, company_name):
             increment5 = i
             kierownik = 1
 
-        elif i in range(i,increment5+l_hr+1):
+        elif i in range(i, increment5 + l_hr + 1):
             klucz_1 = list_staz.index(max(list_staz))
             klucz_2 = list_klucze[klucz_1]
-            if len(stanowiska_hr1)==0:
+            if len(stanowiska_hr1) == 0:
                 stanowiska_hr1 = hr_positions.copy()
-                stanowiska_hr1=stanowiska_hr1[1:]
+                stanowiska_hr1 = stanowiska_hr1[1:]
             if company_size > 3 and kierownik < 2:
                 company[klucz_2]["Position"] = stanowiska_hr1[0]
-                kierownik+=1
+                kierownik += 1
             else:
                 company[klucz_2]["Position"] = stanowiska_hr1.pop(0)
             ### Oddział
             company[klucz_2]["Department"] = departments[-1]
-            if company_size==1 and company[klucz_2]["Position"] == 'Kierownik':
+            if company_size == 1 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(70000, 95000)
                 earnings = round(earnings, -1)
-            elif company_size==2 and company[klucz_2]["Position"] == 'Kierownik':
+            elif company_size == 2 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(78000, 95000)
                 earnings = round(earnings, -1)
-            elif company_size==3 and company[klucz_2]["Position"] == 'Kierownik':
+            elif company_size == 3 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(85000, 100000)
                 earnings = round(earnings, -1)
-            elif company_size==4 and company[klucz_2]["Position"] == 'Kierownik':
+            elif company_size == 4 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(95000, 105000)
                 earnings = round(earnings, -1)
-            elif company_size==5 and company[klucz_2]["Position"] == 'Kierownik':
+            elif company_size == 5 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(100000, 110000)
                 earnings = round(earnings, -1)
-            elif company_size==6 and company[klucz_2]["Position"] == 'Kierownik':
+            elif company_size == 6 and company[klucz_2]["Position"] == 'Kierownik':
                 earnings = random.randint(105000, 115000)
                 earnings = round(earnings, -1)
 
-            if company_size==1 and company[klucz_2]["Position"] != 'Kierownik':
+            if company_size == 1 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(50000, 65000)
-                earnings=round(earnings, -1)
-            elif company_size==2 and company[klucz_2]["Position"] != 'Kierownik':
+                earnings = round(earnings, -1)
+            elif company_size == 2 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(60000, 70000)
                 earnings = round(earnings, -1)
-            elif company_size==3 and company[klucz_2]["Position"] != 'Kierownik':
+            elif company_size == 3 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(70000, 80000)
                 earnings = round(earnings, -1)
-            elif company_size==4 and company[klucz_2]["Position"] != 'Kierownik':
+            elif company_size == 4 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(85000, 98000)
                 earnings = round(earnings, -1)
-            elif company_size==5 and company[klucz_2]["Position"] != 'Kierownik':
+            elif company_size == 5 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(95000, 103000)
                 earnings = round(earnings, -1)
-            elif company_size==6 and company[klucz_2]["Position"] != 'Kierownik':
+            elif company_size == 6 and company[klucz_2]["Position"] != 'Kierownik':
                 earnings = random.randint(100000, 107000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -404,13 +400,13 @@ def company_structure(company, company_name):
             klucz_1 = list_staz.index(max(list_staz))
             klucz_2 = list_klucze[klucz_1]
             company[klucz_2]["Position"] = 'Regular employee'
-            if len(used_departaments1)==0:
+            if len(used_departaments1) == 0:
                 used_departaments1 = wykorzystane_dzialy.copy()
             company[klucz_2]["Department"] = used_departaments1.pop()
-            if company_size<=3:
+            if company_size <= 3:
                 earnings = random.randint(40000, 60000)
-                earnings=round(earnings, -1)
-            elif company_size>3:
+                earnings = round(earnings, -1)
+            elif company_size > 3:
                 earnings = random.randint(55000, 85000)
                 earnings = round(earnings, -1)
             company[klucz_2]["Annual earnings"] = str(earnings) + " zł"
@@ -419,9 +415,10 @@ def company_structure(company, company_name):
             list_staz.pop(klucz_1)
     return company
 
+
 def print_employees(company):
-    for k,v in company.items():
-        print(k,v)
+    for k, v in company.items():
+        print(k, v)
 
 
 def to_json(company):
@@ -430,11 +427,9 @@ def to_json(company):
     print("Data loaded to Employees.json file.")
 
 
-number_of_employees=500
-company_name= "Google"
+number_of_employees = 500
+company_name = "Google"
 company = employees(number_of_employees, company_name)
 company = company_structure(company, company_name)
 print_employees(company)
 to_json(company)
-
-
