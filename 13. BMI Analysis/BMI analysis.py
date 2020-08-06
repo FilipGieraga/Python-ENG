@@ -169,10 +169,10 @@ def BMI():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
     pd.set_option('display.width', 1000)
-    df2.loc[df2["BMI"].between(0, 18.499), ["Comment"]] = ["Underweight"]
-    df2.loc[df2["BMI"].between(18.5, 24.999), ["Comment"]] = ["Correct weight"]
-    df2.loc[df2["BMI"].between(25, 29.999), ["Comment"]] = ["Overweight"]
-    df2.loc[df2["BMI"].between(30, 60), ["Comment"]] = ["Clinical obesity"]
+    df2.loc[df2.BMI<18.5, 'Comment'] = "Underweight"
+    df2.loc[df2.BMI.between(18.5, 24.999), 'Comment'] = "Correct weight"
+    df2.loc[df2.BMI.between(25, 29.999), 'Comment'] = "Overweight"
+    df2.loc[df2.BMI.between(30,60), 'Comment'] = "Clinical obesity"
     df1 = pd.read_csv("participants.csv", engine='python')
     df2["Gender"] = df1["Gender"].values
     df2["Voivodeship"] = df1["Voivodeship"].values
@@ -194,7 +194,7 @@ def histograms(df2, df2_m, df2_w):
     plt.ylabel("Number of people")
     plt.tight_layout()
     plt.savefig("Histogram1.png")
-    plt.show(BMI_m)
+    plt.show()
 
     # Histogram for women
     BMI_w = plt.hist(df2_w.BMI, edgecolor="black")
@@ -204,7 +204,7 @@ def histograms(df2, df2_m, df2_w):
     plt.ylabel("Number of people")
     plt.tight_layout()
     plt.savefig("Histogram2.png")
-    plt.show(BMI_w)
+    plt.show()
 
     df2_m1 = df2.loc[(df2["Gender"].str.contains("M")) & (df2["Age"].between(18, 35))]
     df2_w1 = df2.loc[(df2["Gender"].str.contains("W")) & (df2["Age"].between(18, 35))]
@@ -216,7 +216,7 @@ def histograms(df2, df2_m, df2_w):
     plt.ylabel("Number of people")
     plt.tight_layout()
     plt.savefig("Histogram3.png")
-    plt.show(BMI_mw1)
+    plt.show()
 
     df2_m2 = df2.loc[(df2["Gender"].str.contains("M")) & (df2["Age"].between(46, 65))]
     df2_w2 = df2.loc[(df2["Gender"].str.contains("W")) & (df2["Age"].between(46, 65))]
@@ -228,7 +228,7 @@ def histograms(df2, df2_m, df2_w):
     plt.ylabel("Number of people")
     plt.tight_layout()
     plt.savefig("Histogram4.png")
-    plt.show(BMI_mk2)
+    plt.show()
 
     df2_m3 = df2.loc[(df2["Gender"].str.contains("M")) & (df2["Age"].between(66, 80))]
     df2_w3 = df2.loc[(df2["Gender"].str.contains("W")) & (df2["Age"].between(46, 80))]
@@ -240,7 +240,7 @@ def histograms(df2, df2_m, df2_w):
     plt.ylabel("liczba osób")
     plt.tight_layout()
     plt.savefig("Histogram5.png")
-    plt.show(BMI_mk3)
+    plt.show()
 
     # Group average by voivodeship
 
