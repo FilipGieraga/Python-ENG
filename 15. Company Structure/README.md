@@ -4,7 +4,7 @@ Requirements: Python 3, random module, json module, pandas module, datetime modu
 
 ## Documentation:
 In this program, I tried to create fictitious employees in the company, while maintaining a structure similar to that which may exist in a corporation.
-The main core of the entire program are two functions, ie ** employees() ** and ** company structure() **. <br>
+The main core of the entire program are two functions, ie **employees()** and **company structure()**. <br>
 The first function employees() gets two pieces of information that are defined at the end of the program.
 These are number_of_employees and company_name. The number of employees should not be less than 100 and no more than 699. I will explain why so, later
 in this documentation. The company_name variable is used here for generating emails for all employees and should be given in quotation marks as
@@ -44,7 +44,7 @@ employees depend on the comapny_size.
 Earnings are always a random number from a specific range depending on company_size variable. The higher this variable is, the higher everyone's earnings.
 CEO is also the only employee who doesn't have an assigned department. Monthly earnings of all employees are the annual earnings divided by 12. <br>
 The number of employees for President position and number of departments is equal to the company_size. Departments are randomly selected from the following:<br>
-** Research and Development, Accounting, Compliance, IT, Logistics, Marketing **<br>
+**Research and Development, Accounting, Compliance, IT, Logistics, Marketing** <br>
 There are also **HR employees** in the company, which I will mention later. All employees on higher positions are there because of their work experience.
 The longer it is, the higher the position.
 For each employee on President position one Vice-President is assigned. His earnings are lower and they decrease with every degree in the structure.<br>
@@ -57,7 +57,7 @@ Finally, we have regular employees who are divided into individual departments (
 As for the number of employees that can be created, it follows that with 700 employees the company_size would be 7 and there would be no
 department to draw, because there are only six. With a number of employees less than 100, the ratio would be 0 and no departments would be drawn.
 Besides that, less than 100 employees is more of a company than a corporation. <br>
-All employees are saved in the file ** Employees.json **
+All employees are saved in the file **Employees.json**
 This program has a second part.
 
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/15.%20Company%20Structure/Structure.png)
