@@ -59,3 +59,5 @@ department to draw, because there are only six. With a number of employees less 
 Besides that, less than 100 employees is more of a company than a corporation. <br>
 All employees are saved in the file ** Employees.json **
 This program has a second part.
+
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/15.%20Company%20Structure/Structure.png)
