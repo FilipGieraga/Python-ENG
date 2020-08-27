@@ -10,16 +10,18 @@ def lotto():
                 try:
                     number = int(input(f"Provide {i} number:\n"))
                     if number not in range(1, 50) or number in lucky_numbers:
-                        raise ValueError
+                        raise ValueError("Duplicate numbers, or number out of range.")
                     lucky_numbers.add(number)
                     if i < 6:
                         print(f"Your lucky numbers so far: {sorted(lucky_numbers)}")
                     else:
                         pass
-                except:
-                    print("Possible errors:\nNumber out of range <1,49>\nIt is not an integer number"
-                          "\nYou have already given this number before")
+                except Exception as error:
+                    print(
+                        f"Error log: {error}\nPossible errors:\nNumber out of range <1,49>\nIt is not an integer number"
+                        "\nYou have already given this number before")
                     print(f"Your lucky numbers so far: {sorted(lucky_numbers)}")
+
                 else:
                     break
     else:
@@ -44,11 +46,11 @@ def lotto():
         try:
             x = int(input("Enter the number of hits you want to get.\n"))
             if x not in range(1, 7):
-                raise ValueError
+                raise ValueError("You entered a number out of range <1.6>, or it is not an integer.")
             else:
                 pass
-        except:
-            print("You entered a number out of range <1.6>, or it is not an integer.")
+        except Exception as error:
+            print(error)
         else:
             break
 
@@ -72,4 +74,5 @@ def choice():
         print("Thank you for using this program.")
 
 
-lotto()
+if __name__ == "__main__":
+    lotto()

@@ -16,8 +16,8 @@ def parameters(a=0, b=0, c=0):
             a = float(input("Provide parameter a: \n"))
             b = float(input("Provide parameter b: \n"))
             c = float(input("Provide parameter c : \n"))
-        except:
-            print("Wrong parameters value, please try again.")
+        except Exception as error:
+            print(f"Error occured: {error}\nWrong parameters value, please try again.")
         else:
             break
 
@@ -29,7 +29,7 @@ def parameters(a=0, b=0, c=0):
             print("Function is constant.")
         else:
             p1 = c / (-b)
-            print(f"The zero of this linear function is at {round(p1, 2)}")
+            print(f"The zero of this linear function is at x={round(p1, 2)}")
         choice()
     else:
         delta = b ** 2 - 4 * a * c
@@ -65,4 +65,5 @@ def m_zerowe(d):
     choice()
 
 
-parameters()
+if __name__ == "__main__":
+    parameters()

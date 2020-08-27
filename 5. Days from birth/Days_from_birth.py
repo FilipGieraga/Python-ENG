@@ -16,6 +16,9 @@ def count_days():
             b = int(input("What month?(1,12)\n"))
             c = int(input("Which year?\n"))
             birth = datetime.date(c, b, a)
+        except Exception as error:
+            print(f"Error log: {error}\n"
+                  "Wrong date format, please try again.\n")
         except:
             print("Wrong date format, please try again.")
         else:
@@ -34,5 +37,5 @@ def count_days():
         print("You entered today's date.")
     choice()
 
-
-count_days()
+if __name__ == '__main__':
+    count_days()
