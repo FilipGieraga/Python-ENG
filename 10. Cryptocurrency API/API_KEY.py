@@ -198,7 +198,7 @@ while True:
         coin_full_names, coin_short_names, prices, changes_1h, changes_24h, changes_7d = API_information(coins)
         quantities = quan(coin_full_names)
         excel_file(quantities, coin_full_names, coin_short_names, prices, changes_1h, changes_24h, changes_7d)
-    except:
-        print("Something went wrong. Try again...")
+    except Exception as error:
+        print(f"Something went wrong: {error}. Try again...")
     else:
         break
