@@ -8,13 +8,10 @@ import xlwings as xw
 
 def fetching_data():
     df = pd.read_excel("CryptoPortfolio.xlsx", index_col=None, header=0)
-    # print(df)
     coins = df["Name"]
     coins = [str(x).lower() for x in coins if str(x) != "nan"]
     coins_string = ",".join(coins)
     coins_string = str(coins_string)
-    # print(coins_string)
-    # print(coins)
     return coins, coins_string
 
 
@@ -34,8 +31,6 @@ def update_API(coins_string):
     try:
         response = session.get(url, params=parameters)
         data = json.loads(response.text)
-        # with open("cryptodata.json", "w") as outfile:
-        #     json.dump(data, outfile, indent=2)
         print(data)
         coins_id = []
         names = []
@@ -71,7 +66,6 @@ def sort_values(names, coins, prices, changes_1h, changes_24h, changes_7d):
     positions = []
     for i, coin in enumerate(coins):
         position = coins.index(names[i])
-        # print(position)
         positions.append(position)
     coins = [x for _, x in sorted(zip(positions, coins))]
     prices = [x for _, x in sorted(zip(positions, prices))]
@@ -79,14 +73,6 @@ def sort_values(names, coins, prices, changes_1h, changes_24h, changes_7d):
     changes_24h = [x for _, x in sorted(zip(positions, changes_24h))]
     changes_7d = [x for _, x in sorted(zip(positions, changes_7d))]
     return prices, changes_1h, changes_24h, changes_7d
-
-
-##########     DANE DO EXCELA:
-
-# prices=[9240.25048, 0.19852, 6.14455, 0.12003, 0.39567, 0.01786]
-# changes_1h=[0.2, 0.29, 0.33, 3.4, -1.66, 1.73]
-# changes_24h=[-0.15, -1.07, 2.55, -1.75, 2.58, -0.61]
-# changes_7d=[1.66, 12.25, 28.09, 21.86, 17.63, 73.54]
 
 
 def update_to_xlsx(prices, changes_1h, changes_24h, changes_7d):
