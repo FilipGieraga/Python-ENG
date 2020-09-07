@@ -2,7 +2,7 @@
 
 Requirements: Python 3, pandas module, pandasql module <br><br>
 
-First, the data from laliga.csv file is read.<br>
+Firstly, the data from laliga.csv file is read.<br>
 
 The sql_df() function is used in function queries() and gets the content of each query, printing the result to us. <br>
 <br>
