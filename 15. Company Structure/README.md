@@ -34,11 +34,11 @@ and company_name.
 It's purpose is to define both vertical and horizontal structure. **The vertical structure is determined by work experience,
 while the horizontal structure is defined by the company_size variable.** <br>
 **Company_size** is one of the most important variables in the entire program and the number of employees on individual positions depends on it.
-To be able to start assigning data for individual employees, this function must initially fill two variables, which are lists named list_staz and
-list_klucze with data, i.e. internships of individual employees and corresponding identifiers. Then the company_size variable is calculated, which is
+To be able to start assigning data for individual employees, this function must initially fill two variables, which are lists named internship_list and
+keys_list with data, i.e. internships of individual employees and corresponding identifiers. Then the company_size variable is calculated, which is
 the number_of_employees divided by 100 and rounded down. <br>
-The first employee to whom the data will be assigned is the CEO, the variable klucz_1 looks for the index of the longest work experience in the list
-named list_staz. Then the indicated index number is found in the list list_klucze and its value, i.e. a specific employee_ID, is assigned to the variable klucz_2.
+The first employee to whom the data will be assigned is the CEO, the variable key_1 looks for the index of the longest work experience in the list
+named internships_list. Then the indicated index number is found in the list keys_list and its value, i.e. a specific employee_ID, is assigned to the variable key_2.
 CEO is the only employee in the company who has a unique e-mail address, eg "kuba.szulc-CEO@google.com". His annual earnings and earnings of all other
 employees depend on the comapny_size.
 Earnings are always a random number from a specific range depending on company_size variable. The higher this variable is, the higher everyone's earnings.
@@ -61,3 +61,4 @@ All employees are saved in the file **Employees.json**
 This program has a second part.
 
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/15.%20Company%20Structure/Structure.png)
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/15.%20Company%20Structure/excel.PNG)
