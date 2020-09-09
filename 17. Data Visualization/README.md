@@ -12,5 +12,5 @@ For each year you can visualize :
 - Deaths by months
 
 
-![alt tag]()
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/Data.PNG)
 
