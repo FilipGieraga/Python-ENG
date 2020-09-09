@@ -5,12 +5,12 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import pdfkit
 
-w = "dolnośląskie kujawsko-pomorskie lubelskie lubuskie łódzkie małopolskie mazowieckie opolskie podkarpackie podlaskie pomorskie śląskie\
+voivodeships = "dolnośląskie kujawsko-pomorskie lubelskie lubuskie łódzkie małopolskie mazowieckie opolskie podkarpackie podlaskie pomorskie śląskie\
     świętokrzyskie warmińsko-mazurskie wielkopolskie zachodniopomorskie"
 
-w = w.split()
+voivodeships = voivodeships.split()
 
-imiona_męskie = """Adam, Adolf, Adrian, Albert, Aleksander, Aleksy, Alfred, Amadeusz, Andrzej, Antoni, Arkadiusz, Arnold, Artur,
+male_names = """Adam, Adolf, Adrian, Albert, Aleksander, Aleksy, Alfred, Amadeusz, Andrzej, Antoni, Arkadiusz, Arnold, Artur,
 Bartłomiej, Bartosz, Benedykt, Beniamin, Bernard, Błażej, Bogdan, Bogumił, Bogusław, Bolesław, Borys, Bronisław,
 Cezary, Cyprian, Cyryl, Czesław,
 Damian, Daniel, Dariusz, Dawid, Dionizy, Dominik, Donald,
@@ -33,10 +33,10 @@ Tadeusz, Teodor, Tomasz,
 Wacław, Waldemar, Wiesław, Wiktor, Witold, Władysław, Włodzimierz, Wojciech,
 Zbigniew, Zdzisław, Zenon, Zygmunt"""
 
-imiona_męskie = imiona_męskie.replace('\n', ' ')
-imiona_męskie = imiona_męskie.split(", ")
+male_names = male_names.replace('\n', ' ')
+male_names = male_names.split(", ")
 
-imiona_żeńskie = """Ada, Adela, Adelajda, Adrianna, Agata, Agnieszka, Aldona, Aleksandra, Alicja, Alina, Amanda, Amelia, Anastazja,
+female_names = """Ada, Adela, Adelajda, Adrianna, Agata, Agnieszka, Aldona, Aleksandra, Alicja, Alina, Amanda, Amelia, Anastazja,
 Andżelika, Aneta, Anita, Anna, Antonina,
 Barbara, Beata, Berenika, Bernadeta, Blanka, Bogusława, Bożena,
 Cecylia, Celina, Czesława,
@@ -63,10 +63,10 @@ Weronika, Wiesława, Wiktoria, Wioletta,
 Żaneta,
 Zofia, Zuzanna, Zyta"""
 
-imiona_żeńskie = imiona_żeńskie.replace('\n', ' ')
-imiona_żeńskie = imiona_żeńskie.split(", ")
+female_names = female_names.replace('\n', ' ')
+female_names = female_names.split(", ")
 
-nazwiska = """
+surnames = """
  Nowak Kowalski Wiśniewski Wójcik Kowalczyk Kamiński Lewandowski Zieliński Szymański Woźniak Dąbrowski\
  Kozłowski  Jankowski  Mazur  Wojciechowski  Kwiatkowski  Krawczyk  Kaczmarek  Piotrowski  Grabowski\
  Zając Pawłowski Michalski Król Wieczorek Jabłoński Wróbel Nowakowski Majewski Olszewski Stępień\
@@ -86,7 +86,7 @@ nazwiska = """
  Kurowski Michalik Owczarek Orzechowski Grzelak Łukasik Olejnik Sobolewski Rogowski Mazurkiewicz Barański\
  Bukowski Matusiak Sroka Kosiński Kędzierski Skowroński Marcinkowski"""
 
-nazwiska = nazwiska.split()
+surnames = surnames.split()
 
 
 def choice():
@@ -110,17 +110,17 @@ def csv_file():
         for i in range(200):
             gender = random.choice(["M", "W"])
             if gender == "M":
-                name = random.choice(imiona_męskie)
+                name = random.choice(male_names)
             else:
-                name = random.choice(imiona_żeńskie)
-            surname = random.choice(nazwiska)
+                name = random.choice(female_names)
+            surname = random.choice(surnames)
             if gender == "W":
-                list_nazwisko = list(surname)
-                if list_nazwisko[-1] == "i":
-                    list_nazwisko[-1] = "a"
-                    surname = ''.join(list_nazwisko)
+                list_surname = list(surname)
+                if list_surname[-1] == "i":
+                    list_surname[-1] = "a"
+                    surname = ''.join(list_surname)
             age = random.randint(18, 80)
-            voivodeship = random.choice(w)
+            voivodeship = random.choice(voivodeships)
             id = id1
             csv_writer.writerow([name, surname, age, gender, voivodeship, id])
             i += 1
@@ -169,10 +169,10 @@ def BMI():
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
     pd.set_option('display.width', 1000)
-    df2.loc[df2.BMI<18.5, 'Comment'] = "Underweight"
+    df2.loc[df2.BMI < 18.5, 'Comment'] = "Underweight"
     df2.loc[df2.BMI.between(18.5, 24.999), 'Comment'] = "Correct weight"
     df2.loc[df2.BMI.between(25, 29.999), 'Comment'] = "Overweight"
-    df2.loc[df2.BMI.between(30,60), 'Comment'] = "Clinical obesity"
+    df2.loc[df2.BMI.between(30, 60), 'Comment'] = "Clinical obesity"
     df1 = pd.read_csv("participants.csv", engine='python')
     df2["Gender"] = df1["Gender"].values
     df2["Voivodeship"] = df1["Voivodeship"].values
@@ -211,7 +211,7 @@ def histograms(df2, df2_m, df2_w):
     BMI_mw1 = plt.hist(df2_w1.BMI, edgecolor="blue", bins=5, color="red", alpha=0.5, label="Women")
     BMI_mw1 = plt.hist(df2_m1.BMI, edgecolor="red", bins=5, color="blue", alpha=0.5, label="Men")
     plt.legend(loc='upper right')
-    plt.title('BMI histogram for m & w aged 18-35')
+    plt.title('BMI histogram for m & f aged 18-35')
     plt.xlabel("BMI")
     plt.ylabel("Number of people")
     plt.tight_layout()
@@ -223,7 +223,7 @@ def histograms(df2, df2_m, df2_w):
     BMI_mk2 = plt.hist(df2_w2.BMI, edgecolor="blue", bins=5, color="red", alpha=0.5, label="Women")
     BMI_mk2 = plt.hist(df2_m2.BMI, edgecolor="red", bins=5, color="blue", alpha=0.5, label="Men")
     plt.legend(loc='upper right')
-    plt.title('BMI histogram for m & w aged 46-65')
+    plt.title('BMI histogram for m & f aged 46-65')
     plt.xlabel("BMI")
     plt.ylabel("Number of people")
     plt.tight_layout()
@@ -235,19 +235,19 @@ def histograms(df2, df2_m, df2_w):
     BMI_mk3 = plt.hist(df2_w3.BMI, edgecolor="blue", bins=5, color="red", alpha=0.5, label="Women")
     BMI_mk3 = plt.hist(df2_m3.BMI, edgecolor="red", bins=5, color="blue", alpha=0.5, label="Men")
     plt.legend(loc='upper right')
-    plt.title('BMI histogram for m & w aged 66-80')
+    plt.title('BMI histogram for m & f aged 66-80')
     plt.xlabel("BMI")
     plt.ylabel("liczba osób")
     plt.tight_layout()
     plt.savefig("Histogram5.png")
     plt.show()
 
-    # Group average by voivodeship
+    # Group average by voivodeships
 
     w_m = df2_m.groupby("Voivodeship")["BMI"].mean()
     w_w = df2_w.groupby("Voivodeship")["BMI"].mean()
-    # print(f"Avg for men in particular voivodeship:\n{w_m}\n\n")
-    # print(f"Avg for women in particular voivodeship:\n{w_w}")
+    # print(f"Avg for men in particular voivodeships:\n{w_m}\n\n")
+    # print(f"Avg for women in particular voivodeships:\n{w_w}")
 
     w_m.plot(kind='bar', title="Men", x='BMI', y='Voivodeship')
     plt.subplots_adjust(bottom=0.44)
@@ -260,12 +260,12 @@ def histograms(df2, df2_m, df2_w):
     plt.show()
 
     print("\n\n")
-    s1 = (f"The highest BMI in the group of men is: {df2_m.BMI.max()}")
-    s2 = (f"The highest BMI in the group of women is: {df2_w.BMI.max()}")
-    s3 = (f"The average BMI in the group of men is: {df2_m.BMI.mean()}")
-    s4 = (f"The average BMI in the group of women is: {df2_w.BMI.mean()}")
-    s5 = (f"The lowest BMI in the group of men is: {df2_m.BMI.min()}")
-    s6 = (f"The lowest BMI in the group of women is: {df2_w.BMI.min()}")
+    s1 = f"The highest BMI in the group of men is: {df2_m.BMI.max()}"
+    s2 = f"The highest BMI in the group of women is: {df2_w.BMI.max()}"
+    s3 = f"The average BMI in the group of men is: {df2_m.BMI.mean()}"
+    s4 = f"The average BMI in the group of women is: {df2_w.BMI.mean()}"
+    s5 = f"The lowest BMI in the group of men is: {df2_m.BMI.min()}"
+    s6 = f"The lowest BMI in the group of women is: {df2_w.BMI.min()}"
     print(s1)
     print(s2)
     print(s3)
@@ -276,34 +276,33 @@ def histograms(df2, df2_m, df2_w):
 
 
 def html_to_pdf(df2):
+    df2.to_html("Summary.html")
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    options = {
+        'page-size': 'Letter',
+        'margin-top': '0.75in',
+        'margin-right': '0.75in',
+        'margin-bottom': '0.75in',
+        'margin-left': '0.75in',
+        'encoding': "UTF-8",
+        'custom-header': [
+            ('Accept-Encoding', 'gzip')
+        ],
+        'cookie': [
+            ('cookie-name1', 'cookie-value1'),
+            ('cookie-name2', 'cookie-value2'),
+        ],
+        'outline-depth': 10,
+    }
     try:
-        print("Creating a summary in pdf..")
-        html = df2.to_html("Summary.html")
-        path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
         config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
-        options = {
-            'page-size': 'Letter',
-            'margin-top': '0.75in',
-            'margin-right': '0.75in',
-            'margin-bottom': '0.75in',
-            'margin-left': '0.75in',
-            'encoding': "UTF-8",
-            'custom-header': [
-                ('Accept-Encoding', 'gzip')
-            ],
-            'cookie': [
-                ('cookie-name1', 'cookie-value1'),
-                ('cookie-name2', 'cookie-value2'),
-            ],
-            'outline-depth': 10,
-        }
         pdfkit.from_file("Summary.html", "Summary.pdf", configuration=config, options=options)
-    except:
+    except Exception as e:
         print("Something went wrong... Install program wkhtmltopdf "
-              "and check if the path_wkhtmltopdf variable leads to it")
+              f"and check if the path_wkhtmltopdf variable leads to it.\nError log: {e}")
 
-
-choice()
-df2, df2_m, df2_w = BMI()
-histograms(df2, df2_m, df2_w)
-html_to_pdf(df2)
+if __name__ == '__main__':
+    choice()
+    df2, df2_m, df2_w = BMI()
+    histograms(df2, df2_m, df2_w)
+    html_to_pdf(df2)
