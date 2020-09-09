@@ -14,6 +14,6 @@ Requirements: Python 3, requests module, requests.exceptions, json, xlsxwriter
 8. it also counts the total value of the wallet based on given amounts of cryptocurrencies
 9. creates a pie chart showing the amounts of your cryptocurrencies
 
-## The data is pulled from coinmarketcap.com using my private api key <br>Please bear in mind that if coin has a space you have to use - "Binance Coin"="binance-coin"
+## The data is pulled from coinmarketcap.com using my private api key <br><br>Please bear in mind that if coin has a space you have to use -. Example : "Binance Coin"="binance-coin"
 
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/10.%20Cryptocurrency%20API/API_excel.PNG)
