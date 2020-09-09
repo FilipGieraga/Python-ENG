@@ -328,6 +328,6 @@ def excel_company(headers, id, name, surname, gender, e_mail, date_of_birth, age
     print("The document has been saved correctly in file Company.xlsx")
     print("There are 2 sheets in this document, ie Employees and Statistics.")
 
-
-excel_company(headers, id, name, surname, gender, e_mail, date_of_birth, age, start_date, work_experience,
-              position, department, monthly, yearly)
+if __name__=="__main__":
+    excel_company(headers, id, name, surname, gender, e_mail, date_of_birth, age, start_date, work_experience,
+                  position, department, monthly, yearly)

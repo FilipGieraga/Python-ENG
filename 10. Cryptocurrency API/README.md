@@ -3,7 +3,7 @@
 Requirements: Python 3, requests module, requests.exceptions, json, xlsxwriter
 
 # Program:
-1. asks the user to enter full names of the cryptocurrencies, e.g. bitcoin, xrp, cardano. After each single cryptocurrency entered, please hit enter.
+1. asks the user to enter full names of cryptocurrencies, e.g. bitcoin, xrp, cardano. After each single cryptocurrency entered, please hit enter.
 2. by typing end, we stop the loop
 3. if something goes wrong, the program will notify us about it
 4. if everything is fine, the program asks us to enter a specific amount of each
@@ -15,4 +15,6 @@ Requirements: Python 3, requests module, requests.exceptions, json, xlsxwriter
 9. creates a pie chart showing the amounts of your cryptocurrencies
 
 ## The data is pulled from coinmarketcap.com using my private api key
+
+## Please bear in mind that if coin has a space you have to use - "Binance Coin"="binance-coin"
 
