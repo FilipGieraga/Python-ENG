@@ -1,34 +1,29 @@
 import random
 import argparse
+import string
 from argparse import RawTextHelpFormatter
-
-digits = "0123456789"
-upper_case = "ABCDEFGHIJKLMNOPRSTQUWXYZ"
-lower_case = "abcdefghijklmnoprqstuwxyz"
-special_characters = "!@#$%^&*(){}[]\|:\"'<>?,./"
-
 
 def specified_pass(**kwargs):
     p = ''
     for k, v in kwargs.items():
         if k == 'd' and v != 0:
             for i in range(v):
-                p += random.choice(digits)
+                p += random.choice(string.digits)
         if k == 'u' and v != 0:
             for i in range(v):
-                p += random.choice(upper_case)
+                p += random.choice(string.ascii_uppercase)
         if k == 'l' and v != 0:
             for i in range(v):
-                p += random.choice(lower_case)
+                p += random.choice(string.ascii_lowercase)
         if k == 's' and v != 0:
             for i in range(v):
-                p += random.choice(special_characters)
+                p += random.choice(string.punctuation)
     p = ''.join(random.sample(p, len(p)))
     return print(f"Your specified password : {p}")
 
 
 def random_generated_pass(y):
-    x = digits + upper_case + lower_case + special_characters
+    x = string.digits + string.ascii_uppercase + string.ascii_lowercase + string.punctuation
     x = ''.join(random.sample(x, len(x)))
     x = x[:y]
     return f"Your random password : {x}"
@@ -37,12 +32,12 @@ def random_generated_pass(y):
 parser = argparse.ArgumentParser(description="Generate random password", formatter_class=RawTextHelpFormatter)
 
 parser.add_argument("o", metavar="Options", type=str, help="r - random password\n"
-                                                           "[-n number] optional number of characters in a completely random password, default is 8\n"
+                                                           "[-n number] optional number of characters in a completely random password, default 8\n"
                                                            "p - precise password\n"
-                                                           "[-d number] opcjonalna ilość cyfr w sprecyzowanym haśle, domyślnie 0\n"
-                                                           "[-l number] opcjonalna ilość małych liter w sprecyzowanym haśle, domyślnie 0\n"
-                                                           "[-u number] opcjonalna ilość duzych liter w sprecyzowanym haśle, domyślnie 0\n"
-                                                           "[-s number] opcjonalna ilość znaków specjalnych w sprecyzowanym haśle, domyślnie 0\n",
+                                                           "[-d number] optional number of digits in a specified password, default 8\n"
+                                                           "[-l number] optional number of lower cases in a specified password, default 8\n"
+                                                           "[-u number] optional number of upper cases in a specified password, default 8\n"
+                                                           "[-s number] optional number of special characters in a specified password, default 8\n",
                     choices=["r", "p"], nargs="?")
 
 args, sub_args = parser.parse_known_args()
