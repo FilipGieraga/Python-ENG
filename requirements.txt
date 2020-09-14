@@ -1,0 +1,13 @@
+XlsxWriter==1.2.9
+dash_core_components==1.11.0
+dash_html_components==1.1.0
+numpy==1.18.4
+pandas==1.0.4
+plotly==4.9.0
+Faker==4.1.1
+pdfkit==0.6.1
+requests==2.24.0
+xlwings==0.19.5
+pandasql==0.7.3
+dash==1.15.0
+matplotlib==3.2.1
