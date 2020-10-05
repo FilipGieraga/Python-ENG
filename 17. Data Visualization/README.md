@@ -14,5 +14,5 @@ For each year you can visualize :
 - Deaths in state
 
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/Data.PNG)
-##Update with US map
+## Update with US map
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/datav.PNG)
