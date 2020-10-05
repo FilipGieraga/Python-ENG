@@ -11,7 +11,8 @@ For each year you can visualize :
 - Average age of death due to shootings
 - Deaths in cities
 - Deaths by months
-
+- Deaths in state
 
 ![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/Data.PNG)
-
+Update with US map
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/datav.PNG)
