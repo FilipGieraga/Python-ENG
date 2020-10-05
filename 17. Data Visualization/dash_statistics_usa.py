@@ -52,7 +52,8 @@ def graph1_dash(dict_data):
                 id='demo-dropdown',
                 options=[
                     {'label': 'Deaths of particular races in given year', 'value': 'fig_1'},
-                    {'label': 'Deaths of particular races in given state', 'value': 'fig_2'},
+                    {'label': 'Deaths in given state', 'value': 'fig_2'},
+                    {'label': 'Deaths of particular races in given state', 'value': 'fig_6'},
                     {'label': 'Average age of death due to shootings', 'value': 'fig_3'},
                     {'label': 'Deaths in cities', 'value': 'fig_4'},
                     {'label': 'Deaths by months', 'value': 'fig_5'},
@@ -89,6 +90,7 @@ def graph1_dash(dict_data):
         selected_y = dict_data.get(year)
         race_this_year = selected_y.groupby(["race"]).size()
         race_in_state = selected_y.groupby(["state", "race"]).size()
+        state_only = selected_y.groupby(["state"]).size()
         average_age = selected_y.groupby("state")['age'].mean()
         cities = selected_y.groupby(['city']).size()
         selected_y['month'] = selected_y['date'].dt.month
@@ -102,23 +104,22 @@ def graph1_dash(dict_data):
         fig_1 = px.bar(df_1, x="Race", y="Deaths", color="Race", title="Deaths of particular races in given year")
 
         df_2 = pd.DataFrame({
-            "State": race_in_state.index.get_level_values(0),
-            "Race": race_in_state.index.get_level_values(1),
-            "Deaths": race_in_state.values,
+            "State": list(state_only.index),
+            "Deaths": state_only.values,
         })
 
-        fig_2 = px.bar(df_2, x="State", y="Deaths", color="Race", barmode='group',
-                       title="Deaths of particular races in given state",
-                       color_discrete_sequence=["purple", "blue", "green", "red", "cyan", "orange"],
-                       category_orders={"Race": ["Native", "Asian", "Hispanic", "Black", "White", "Other"]})
+        fig_2 = px.choropleth(df_2, locations="State", locationmode="USA-states", color="Deaths", scope="usa",
+                              title="Deaths in given state")
+        fig_2.update_layout(margin=dict(l=60, r=60, t=50, b=50))
 
         df_3 = pd.DataFrame({
             "State": list(average_age.index),
             "Age": average_age.values,
         })
 
-        fig_3 = px.bar(df_3, x="State", y="Age", color="Age", barmode='group',
-                       title="Average age of death due to shootings")
+        fig_3 = px.choropleth(df_3, locations="State", locationmode="USA-states", color="Age", scope="usa",
+                              title="Average age of death due to shootings")
+        fig_3.update_layout(margin=dict(l=60, r=60, t=50, b=50))
 
         df_4 = pd.DataFrame({
             "City": cities.index,
@@ -138,6 +139,15 @@ def graph1_dash(dict_data):
 
         fig_5 = px.bar(df_5, x="Month", y="Deaths", color="Deaths",
                        title="Deaths by months")
+        df_6 = pd.DataFrame({
+            "State": race_in_state.index.get_level_values(0),
+            "Race": race_in_state.index.get_level_values(1),
+            "Deaths": race_in_state.values,
+        })
+        fig_6 = px.bar(df_6, x="State", y="Deaths", color="Race", barmode='group',
+                       title="Deaths of particular races in given state",
+                       color_discrete_sequence=["purple", "blue", "green", "red", "cyan", "orange"],
+                       category_orders={"Race": ["Native", "Asian", "Hispanic", "Black", "White", "Other"]})
 
         if value == 'fig_1':
             return fig_1
@@ -147,8 +157,10 @@ def graph1_dash(dict_data):
             return fig_3
         elif value == 'fig_4':
             return fig_4
-        else:
+        elif value == 'fig_5':
             return fig_5
+        else:
+            return fig_6
 
     app.run_server(debug=True)
 
