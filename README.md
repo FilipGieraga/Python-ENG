@@ -48,7 +48,6 @@
 - Sets
 - Dictionaries
 - I/O
-- Classes
 - Libraries
 - Error Handling
 - OOP basics
