@@ -14,9 +14,10 @@
 <br/>
 
 ### Biggest projects so far:
-<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />15. Company Structure   <br/>
-<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />13. BMI Analysis   <br/>
-<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />10. Cryptocurrency API   <br/>
+<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />17. Data Visualization<br/>
+<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />15. Company Structure<br/>
+<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />13. BMI Analysis<br/>
+<img align="left" width="22px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/OOjs_UI_icon_check.svg/1024px-OOjs_UI_icon_check.svg.png" />10. Cryptocurrency API<br/>
 
 ### Languages and Tools I worked with:
 
@@ -53,3 +54,4 @@
 - OOP basics
 - Web Scarping
 - SQL statements for data queries
+- Data Visualization
