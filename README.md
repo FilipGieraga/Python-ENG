@@ -54,3 +54,4 @@
 - Web Scarping
 - SQL statements for data queries
 - Data Visualization
+- Regular Expressions
