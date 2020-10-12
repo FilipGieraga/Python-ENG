@@ -1,0 +1,33 @@
+
+Time
+12:17 --> Correct,
+2:7 --> Incorrect,
+21:4s --> Incorrect,
+0:00 --> Correct,
+23:59 --> Correct,
+
+NIP
+
+931-37-42-089 --> Correct,
+9313742089 --> Correct,
+931-31-42123 --> Incorrect,
+38922959385 --> Incorrect,
+
+Phone
+
+45 121-973-002  --> Correct,
+693283213 --> Correct",
+"+35 324-985-345 --> Correct, +35+324-985-345 --> Semi-Correct,"
+"121-973-002  --> Correct, 86-48397-49  --> Incorrect,"
+"8648397492  --> Incorrect"
+
+Polish ID
+
+QKD256422 --> Correct",
+QkD256422 --> Incorrect",
+QKOL213222 --> Incorrect",
+ASR125476 --> Correct",
+
+Pesel
+
+45121973002@!#!@# 123 123 12324234 2432434354325 234532452435 3453453428573429572495429534 35324485345
