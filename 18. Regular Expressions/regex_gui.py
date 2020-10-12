@@ -1,83 +1,79 @@
 import regex_check
 from tkinter import *
 
+
 # Functions
 
 def pesel_check():
-    global output
-    output.grid_forget()
+    # global output
+    # output.grid_forget()
+    output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_pesel(input)
     final = ""
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        output = Label(window, text=final)
-        output.grid(row=16, column=2)
+        # output = Label(window, text=final)
+        # output.grid(row=16, column=2)
+        output.insert(END, final)
     else:
-        output = Label(window, text=result)
-        output.grid(row=16, column=2)
+        # output = Label(window, text=result)
+        # output.grid(row=16, column=2)
+        output.insert(END, result)
+
 
 def time_check():
-    global output
-    output.grid_forget()
+    output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_time(input)
     final = ""
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        output = Label(window, text=final)
-        output.grid(row=16, column=2)
+        output.insert(END, final)
     else:
-        output = Label(window, text=result)
-        output.grid(row=16, column=2)
+        output.insert(END, result)
+
 
 def id_check():
-    global output
-    output.grid_forget()
+    output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_id(input)
     final = ""
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        output = Label(window, text=final)
-        output.grid(row=16, column=2)
+        output.insert(END, final)
     else:
-        output = Label(window, text=result)
-        output.grid(row=16, column=2)
+        output.insert(END, result)
+
 
 def nip_check():
-    global output
-    output.grid_forget()
+    output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_nip(input)
     final = ""
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        output = Label(window, text=final)
-        output.grid(row=16, column=2)
+        output.insert(END, final)
     else:
-        output = Label(window, text=result)
-        output.grid(row=16, column=2)
+        output.insert(END, result)
+
 
 def phone_check():
-    global output
-    output.grid_forget()
+    output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_phone(input)
     final = ""
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        # output = Entry(window, text=final, exportselection=0)
-        output = Label(window, text=final)
-        output.grid(row=16, column=2)
+        output.insert(END, final)
     else:
-        output = Label(window, text=result)
-        output.grid(row=16, column=2)
+        output.insert(END, result)
+
 
 window = Tk()
 window.wm_title("REGEX CHECKER")
@@ -91,12 +87,12 @@ l1.grid(row=0, column=0)
 l2 = Label(window, text="Results:")
 l2.grid(row=15, column=0)
 
-output = Label(window, text="")
+output = Text(window, height=13, width=35, bg="light yellow")
 output.grid(row=16, column=2)
 
 # Input text
 
-text_to_check = Text(window, height=20, width=60)
+text_to_check = Text(window, height=20, width=60, bg="light cyan")
 text_to_check.grid(row=1, column=1, rowspan=10, columnspan=8)
 
 # Buttons
