@@ -14,4 +14,4 @@ Every check is contained in a different function and they return all valid expre
 ## Update
 
 Graphical User Interface has been added to the project.
-![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/18.%20Regular%20Expressions/GUI.PNG)
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/18.%20Regular%20Expressions%20%2B%20GUI/GUI.PNG)
