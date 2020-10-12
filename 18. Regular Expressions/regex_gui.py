@@ -5,8 +5,6 @@ from tkinter import *
 # Functions
 
 def pesel_check():
-    # global output
-    # output.grid_forget()
     output.delete('1.0', END)
     input = text_to_check.get("1.0", END)
     result = regex_check.is_valid_pesel(input)
@@ -14,12 +12,8 @@ def pesel_check():
     if isinstance(result, list):
         for element in result:
             final += f"{element}\n"
-        # output = Label(window, text=final)
-        # output.grid(row=16, column=2)
         output.insert(END, final)
     else:
-        # output = Label(window, text=result)
-        # output.grid(row=16, column=2)
         output.insert(END, result)
 
 
