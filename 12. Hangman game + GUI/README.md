@@ -1,6 +1,6 @@
 # Hangman program, as the name suggests, allows us to play hangman game
 
-Requirements: Python 3
+Requirements: Python 3, tkinter
 
 # Program:
 - asks the user to enter a password
