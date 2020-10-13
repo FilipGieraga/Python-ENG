@@ -17,4 +17,4 @@ Requirements: Python 3
 ## Update
 
 Graphical User Interface has been added to the project.
-![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/18.%20Regular%20Expressions%20%2B%20GUI/GUI.PNG)
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/12.%20Hangman%20game%20%2B%20GUI/GUI.PNG)
