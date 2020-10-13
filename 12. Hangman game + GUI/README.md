@@ -13,3 +13,8 @@ Requirements: Python 3
 - if player exceeds the allowed number of password guessing attempts, the program will show him that he lost and what the password was
 - if player can guess the password before reaching the limit, the program will display that the password was hit
 - the program will ask if you want to play again
+
+## Update
+
+Graphical User Interface has been added to the project.
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/18.%20Regular%20Expressions%20%2B%20GUI/GUI.PNG)
