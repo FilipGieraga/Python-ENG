@@ -55,3 +55,5 @@
 - SQL statements for data queries
 - Data Visualization
 - Regular Expressions
+- Graphical User Interface
+- Django basics(other repository)
