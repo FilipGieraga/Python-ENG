@@ -14,6 +14,8 @@ to be more specific.<br> There are 3 filters:
 - Genre(like comedy, or thriller)
 - Year
 - Country where the movie was made<br>
+
+
 If you want to scrape filtered data you need to go to the website directly, set the filters and paste given url to the function, because
 default url is for top 500.
 Please note that this program opens the chrome browser without any extentions and once it does,
