@@ -25,7 +25,7 @@ container = scraper(url="https://www.filmweb.pl/ranking/film/Horror/12/2020",no_
 Once the scraping is done, function returns dictionary of records and pass it to excel_file().
 Here you can only specify the name of the file. It also takes dictionary "container" and this can't be changed.
 The output is excel file that looks like this:<br>
-![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/17.%20Data%20Visualization/datav.PNG)
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/19.%20Filmweb_Scraper/scraper.PNG)
 
 ## IMPORTANT
 Since it's Selenium you need to have chromedriver.exe on your computer and specify the path to it in variable path.<br>
