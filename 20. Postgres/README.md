@@ -12,6 +12,7 @@ to values that allow us to send queries, i.e.:
 - Size - string to float
 - Installs - string to int
 - Price - string to float<br>
+
 After conversion, second part of this project inputs data into database using
 a generator which divides it into bites and gets rid of duplicates.<br>
 The third part is creating an interface using the tkinter library and allowing user to send queries.<br>
