@@ -30,3 +30,5 @@ Here are queries that you can send to db:
 I didn't want data to by amended, that's why credentials to my db are not in the code.<br>
 You can query data with GUI
 
+![alt tag](https://github.com/FilipGieraga/Python-ENG/blob/master/20.%20Postgres/gui_pic.PNG)
+
