@@ -1,4 +1,4 @@
-# Program Corporate structure:
+# Program Postgres Database:
 
 Requirements: Python 3, pandas, psycopg2, tkinter
 
