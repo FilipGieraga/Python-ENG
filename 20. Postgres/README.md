@@ -8,10 +8,10 @@ This program was about creating a graphical interface for a database hosted on h
 It consists of three parts, where the first one focuses on converting data from kaggle.com
 (source: https://www.kaggle.com/lava18/google-play-store-apps?select=googleplaystore.csv)
 to values that allow us to send queries, i.e.:
-- Reviews string to int
-- Size string to float
-- Installs string to int
-- Price string to float
+- Reviews - string to int
+- Size - string to float
+- Installs - string to int
+- Price - string to float<br>
 After conversion, second part of this project inputs data into database using
 a generator which divides it into bites and gets rid of duplicates.<br>
 The third part is creating an interface using the tkinter library and allowing user to send queries.<br>
@@ -26,6 +26,6 @@ Here are queries that you can send to db:
 - app_finder() - App finder looking for partial or complete match in App name field
 
 ## Disclaimer
-I didn't want data to by amended, that's why credentials to my db are not in the code.
+I didn't want data to by amended, that's why credentials to my db are not in the code.<br>
 You can query data with GUI
 
