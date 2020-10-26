@@ -1,6 +1,6 @@
 # Program Corporate structure:
 
-Requirements: Python 3.8.2, pandas, psycopg2, tkinter
+Requirements: Python 3, pandas, psycopg2, tkinter
 
 ## Documentation:
 
